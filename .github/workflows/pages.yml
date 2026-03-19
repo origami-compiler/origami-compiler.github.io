@@ -35,8 +35,7 @@ jobs:
         with:
           path: pages
           fetch-depth: 1
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+          token: ${{ secrets.PAGES_REPO_PAT }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
