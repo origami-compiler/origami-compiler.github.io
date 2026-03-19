@@ -33,6 +33,7 @@ jobs:
       - name: Checkout pages repo
         uses: actions/checkout@v6
         with:
+          repository: ${{ github.repository_owner }}/pages
           path: pages
           fetch-depth: 1
           token: ${{ secrets.PAGES_REPO_PAT }}
