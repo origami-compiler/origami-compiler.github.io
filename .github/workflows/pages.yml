@@ -29,9 +29,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: read
-    
     steps:
       - name: Checkout pages repo
         uses: actions/checkout@v6
