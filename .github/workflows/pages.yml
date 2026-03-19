@@ -36,8 +36,6 @@ jobs:
       - name: Checkout pages repo
         uses: actions/checkout@v6
         with:
-          repository: ${{ github.repository_owner }}/pages
-          ref: refs/heads/main
           path: pages
           fetch-depth: 1
       - name: Setup Pages
