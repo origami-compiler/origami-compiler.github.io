@@ -37,8 +37,6 @@ jobs:
           path: pages
           fetch-depth: 1
           token: ${{ secrets.PAGES_REPO_PAT }}
-      - name: List all
-        run: ls -laR
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
