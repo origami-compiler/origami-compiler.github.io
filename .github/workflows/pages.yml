@@ -37,13 +37,14 @@ jobs:
 
           echo "run-id=$RUN_ID" >> "$GITHUB_OUTPUT"
       - name: Download artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: origami-demo.zip
           repository: origami-compiler/origami
           run-id: ${{ steps.latest.outputs.run-id }}
           github-token: ${{ secrets.TOKEN_ORIGAMI_ARTIFACTS }}
           path: ./artifact
+      - run: ls -la ./artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
