@@ -44,7 +44,8 @@ jobs:
           run-id: ${{ steps.latest.outputs.run-id }}
           github-token: ${{ secrets.TOKEN_ORIGAMI_ARTIFACTS }}
           path: ./artifact
-      - run: ls -la ./artifact
+      - name: Decompress the demo
+        run: unzip ./artifact/origami-demo.zip -d pages/demo/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
