@@ -42,7 +42,7 @@ jobs:
           name: origami-demo.zip
           repository: origami-compiler/origami
           run-id: ${{ steps.latest.outputs.run-id }}
-          github-token: ${{ ssecrets.TOKEN_ORIGAMI_ARTIFACTS }}
+          github-token: ${{ secrets.TOKEN_ORIGAMI_ARTIFACTS }}
           path: ./artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
