@@ -37,6 +37,21 @@ jobs:
           path: pages
           fetch-depth: 1
           token: ${{ secrets.PAGES_REPO_PAT }}
+      - name: Get latest WASM demo
+        id: latest
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          RUN_ID=$(gh run list --repo origami-compiler/origami --workflow wasm-build.yml --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          echo "run-id=$RUN_ID" >> "$GITHUB_OUTPUT"
+      - name: Download artifact
+          uses: actions/download-artifact@v5
+          with:
+            name: origami-demo.zip
+            repository: origami-compiler/origami
+            run-id: ${{ steps.latest.outputs.run-id }}
+            github-token: ${{ secrets.GH_PAT }}
+            path: ./artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
