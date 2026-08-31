@@ -29,7 +29,7 @@ jobs:
       - name: Get latest WASM demo
         id: latest
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ github.token }}
         run: >
           RUN_ID=$(gh run list --repo origami-compiler/origami --workflow
           wasm-build.yml --status success --limit 1 --json databaseId --jq
