@@ -47,7 +47,7 @@ jobs:
       - name: Decompress the demo
         run: unzip ./artifact/origami-demo.zip -d pages/demo/
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v7
         with:
           path: pages
       - name: Deploy to GitHub Pages
